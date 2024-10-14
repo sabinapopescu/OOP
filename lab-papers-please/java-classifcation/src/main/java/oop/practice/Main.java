@@ -42,22 +42,22 @@ public class Main {
       AlienSpecies alien = new AlienSpecies(id, isHumanoid, planet, age, traits);
       alien.displayInfo();  // Show the alien's info
 
-      System.out.println("Assign to a universe: 1 for Star Wars, 2 for Hitchhiker's, 3 for Marvel, 4 for Rings");
+      System.out.println("Assign to a universe: 1 for Star Wars, 2 for Hitchhiker's, 3 for Marvel, 4 for Rings: ");
       String userInput = scanner.nextLine();
 
       // Add the alien species object to the appropriate universe
       switch (userInput) {
         case "1":
-          starWars.individuals().add(alien);  // Add AlienSpecies object
+          starWars.getIndividuals().add(alien);  // Add AlienSpecies object
           break;
         case "2":
-          hitchhikers.individuals().add(alien);  // Add AlienSpecies object
+          hitchhikers.getIndividuals().add(alien);  // Add AlienSpecies object
           break;
         case "3":
-          marvel.individuals().add(alien);  // Add AlienSpecies object
+          marvel.getIndividuals().add(alien);  // Add AlienSpecies object
           break;
         case "4":
-          rings.individuals().add(alien);  // Add AlienSpecies object
+          rings.getIndividuals().add(alien);  // Add AlienSpecies object
           break;
         default:
           System.out.println("Invalid input");
@@ -67,12 +67,12 @@ public class Main {
     scanner.close();
 
     // Get the absolute path to ensure we're in the right directory
-    File outputDir = new File("src/main/resources/output").getAbsoluteFile();
+    File outputDir = new File("lab-papers-please/java-classifcation/src/main/resources/output").getAbsoluteFile();
     if (!outputDir.exists()) {
       outputDir.mkdirs();  // Create the directory if it doesn't exist
     }
 
-    // Print out the absolute path for debugging
+    // Print out the absolute path for debugging Saving files to: C:\Users\sabi2\OneDrive\Desktop\oop-course-repo\src\main\resources\output
     System.out.println("Saving files to: " + outputDir.getAbsolutePath());
 
     // Save the classified universes (Jackson will now serialize the AlienSpecies objects correctly)
