@@ -66,4 +66,15 @@ public class AlienSpecies {
         System.out.println("Age: " + age);
         System.out.println("Traits: " + traits);
     }
+
+    @Override
+    public String toString() {
+        return "AlienSpecies{" +
+                "id=" + id +
+                ", isHumanoid=" + isHumanoid +
+                ", planet='" + planet + '\'' +
+                ", age=" + age +
+                ", traits=" + traits +
+                '}';
+    }
 }
