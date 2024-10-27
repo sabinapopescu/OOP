@@ -9,7 +9,6 @@ public class AlienSpecies {
     private int age;
     private List<String> traits;
 
-    // Constructor
     public AlienSpecies(int id, boolean isHumanoid, String planet, int age, List<String> traits) {
         this.id = id;
         this.isHumanoid = isHumanoid;
@@ -18,7 +17,7 @@ public class AlienSpecies {
         this.traits = traits;
     }
 
-    // Getters for all fields
+    // Getters
     public int getId() {
         return id;
     }
@@ -39,10 +38,31 @@ public class AlienSpecies {
         return traits;
     }
 
+    // Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setHumanoid(boolean humanoid) {
+        isHumanoid = humanoid;
+    }
+
+    public void setPlanet(String planet) {
+        this.planet = planet;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setTraits(List<String> traits) {
+        this.traits = traits;
+    }
+
     public void displayInfo() {
         System.out.println("Alien ID: " + id);
         System.out.println("Humanoid: " + isHumanoid);
-        System.out.println("Planet: " + (planet != null ? planet : "Unknown"));
+        System.out.println("Planet: " + planet);
         System.out.println("Age: " + age);
         System.out.println("Traits: " + traits);
     }
