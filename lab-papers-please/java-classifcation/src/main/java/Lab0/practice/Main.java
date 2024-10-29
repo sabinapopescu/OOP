@@ -1,4 +1,4 @@
-package oop.practice;
+package Lab0.practice;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,19 +16,8 @@ public class Main {
         Map<String, List<AlienSpecies>> aliensByPlanet = new HashMap<>();
 
         for (JsonNode entry : data) {
-            int id = entry.has("id") ? entry.get("id").asInt() : -1;
-            boolean isHumanoid = entry.has("isHumanoid") && entry.get("isHumanoid").asBoolean();
-            String planet = entry.has("planet") ? entry.get("planet").asText().trim() : "intergalactic";
-            int age = entry.has("age") ? entry.get("age").asInt() : -1;
+            AlienSpecies alien = mapToAlien(entry);
 
-            List<String> traits = new ArrayList<>();
-            if (entry.has("traits")) {
-                for (JsonNode trait : entry.get("traits")) {
-                    traits.add(trait.asText());
-                }
-            }
-
-            AlienSpecies alien = new AlienSpecies(id, isHumanoid, planet, age, traits);
             String planetKey = alien.getPlanet();
             aliensByPlanet.computeIfAbsent(planetKey, k -> new ArrayList<>()).add(alien);
         }
@@ -43,5 +32,22 @@ public class Main {
         View.writeAliensByPlanetToFile(aliensByPlanet, planetOutputDir);
 
         System.out.println("Files saved to: " + outputDir.getAbsolutePath());
+    }
+
+    private static AlienSpecies mapToAlien(JsonNode entry) {
+        int id = entry.has("id") ? entry.get("id").asInt() : -1;
+        boolean isHumanoid = entry.has("isHumanoid") && entry.get("isHumanoid").asBoolean();
+        String planet = entry.has("planet") ? entry.get("planet").asText().trim() : "intergalactic";
+        int age = entry.has("age") ? entry.get("age").asInt() : -1;
+
+        List<String> traits = new ArrayList<>();
+        if (entry.has("traits")) {
+            for (JsonNode trait : entry.get("traits")) {
+                traits.add(trait.asText());
+            }
+        }
+
+        AlienSpecies alien = new AlienSpecies(id, isHumanoid, planet, age, traits);
+        return alien;
     }
 }

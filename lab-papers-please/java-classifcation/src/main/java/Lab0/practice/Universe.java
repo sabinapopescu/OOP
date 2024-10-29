@@ -1,4 +1,4 @@
-package oop.practice;
+package Lab0.practice;
 
 import java.util.List;
 
