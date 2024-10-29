@@ -1,4 +1,4 @@
-package Lab1;
+package Task1;
 
 public class Display {
     private int width;
@@ -6,7 +6,6 @@ public class Display {
     private float ppi;
     private String model;
 
-    // Constructor
     public Display(int width, int height, float ppi, String model) {
         this.width = width;
         this.height = height;
@@ -14,7 +13,6 @@ public class Display {
         this.model = model;
     }
 
-    // Method to compare size
     public void compareSize(Display m) {
         int thisSize = this.width * this.height;
         int otherSize = m.width * m.height;
@@ -27,7 +25,6 @@ public class Display {
         }
     }
 
-    // Method to compare sharpness
     public void compareSharpness(Display m) {
         if (this.ppi > m.ppi) {
             System.out.println(this.model + " is sharper than " + m.model);
@@ -38,7 +35,6 @@ public class Display {
         }
     }
 
-    // Method to compare both size and sharpness
     public void compareWithMonitor(Display m) {
         compareSize(m);
         compareSharpness(m);
