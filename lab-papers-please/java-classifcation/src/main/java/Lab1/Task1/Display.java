@@ -1,4 +1,4 @@
-package Task1;
+package  Lab1.Task1;
 
 public class Display {
     private int width;
@@ -38,5 +38,9 @@ public class Display {
     public void compareWithMonitor(Display m) {
         compareSize(m);
         compareSharpness(m);
+    }
+
+    public String getModel() {
+        return model;
     }
 }
