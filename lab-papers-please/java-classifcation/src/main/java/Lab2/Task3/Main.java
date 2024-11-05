@@ -1,26 +1,21 @@
-package Lab2.Task2;
+package Lab2.Task3;
 
 public class Main {
     public static void main(String[] args) {
-        Coffee basicCoffee = new Coffee(Intensity.MEDIUM);
-        basicCoffee.printCoffeeDetails();
-        System.out.println();
-
         Cappuccino cappuccino = new Cappuccino(Intensity.MEDIUM, 50);
-        cappuccino.printCoffeeDetails();
+        cappuccino.makeCappuccino();
         System.out.println();
 
         PumpkinSpiceLatte pumpkinSpiceLatte = new PumpkinSpiceLatte(Intensity.MEDIUM, 100, 50);
-        pumpkinSpiceLatte.printCoffeeDetails();
+        pumpkinSpiceLatte.makePumpkinSpiceLatte();
         System.out.println();
 
         Americano americano = new Americano(Intensity.MEDIUM, 200);
-        americano.printCoffeeDetails();
+        americano.makeAmericano();
         System.out.println();
 
         SyrupCappuccino syrupCappuccino = new SyrupCappuccino(Intensity.STRONG, 150, SyrupType.VANILLA);
-        syrupCappuccino.printCoffeeDetails();
+        syrupCappuccino.makeSyrupCappuccino();
         System.out.println();
     }
 }
-
