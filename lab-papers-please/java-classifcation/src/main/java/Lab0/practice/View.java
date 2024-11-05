@@ -1,7 +1,7 @@
 package Lab0.practice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.File;
 import java.io.IOException;
 import java.text.Normalizer;
@@ -9,11 +9,12 @@ import java.util.List;
 import java.util.Map;
 
 public class View {
-    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
-    public static void writeUniverseToFile(Universe universe, File outputDir) throws IOException {
-        File file = new File(outputDir, universe.getName() + ".json");
-        mapper.writeValue(file, universe);
+    // Writes a list of aliens to a specified file in the output directory
+    public static void writeAliensToFile(List<AlienSpecies> aliens, String fileName, File outputDir) throws IOException {
+        File file = new File(outputDir, fileName);
+        mapper.writeValue(file, aliens);
     }
 
     public static void writeAliensByPlanetToFile(Map<String, List<AlienSpecies>> aliensByPlanet, File outputDir) throws IOException {
